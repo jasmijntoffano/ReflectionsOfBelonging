@@ -547,6 +547,7 @@ I nodded, the weight of the photograph pressing against my leg through the fabri
             gradualVolumeIncrease(audioElement, 0.2, 3000); // 3 seconds fade-in to 20% volume
         }, 2000); // Delay fade-in start by 2 seconds
     }
+
 &lt;/script&gt;
 </tw-passagedata><tw-passagedata pid="7" name="They told me it was the right choice." tags="" position="1700,925" size="100,100">&lt;audio id=&quot;storyAudio&quot;&gt;
     &lt;source src=&quot;https://raw.githubusercontent.com/jasmijntoffano/ReflectionsOfBelonging/main/ElevenLabs_2024-12-06T20_35_54_Melanie_pvc_s53_sb55_se50_b_m2.mp3&quot; type=&quot;audio/mpeg&quot;&gt;
@@ -758,17 +759,17 @@ For now, all I want is to escape. Tonight, I’ll meet up with my friends—drin
     &lt;button onclick=&quot;document.getElementById(&#39;audioTwo&#39;).play()&quot;&gt;▶ Start Audio 2&lt;/button&gt;
     &lt;button onclick=&quot;document.getElementById(&#39;audioTwo&#39;).pause()&quot;&gt;⏸ Pause Audio 2&lt;/button&gt;
 &lt;/p&gt;
-&lt;p class=&quot;story_text&quot;&gt;&lt;/p&gt;
+
 
 &lt;script&gt;
-    const audioElement = document.getElementById(&#39;audioTwo&#39;);
+    var audioElement = document.getElementById(&#39;audioTwo&#39;);
     if (audioElement) {
         audioElement.volume = 1.0; // Set the volume to the maximum allowed level (100%)
     } else {
         console.error(&quot;Audio element not found.&quot;);
     }
 &lt;/script&gt;
-
+&lt;p class=&quot;story_text&quot;&gt;
 The world doesn’t get me. I don’t belong here. I’m just a kid trying to survive, but no one cares. Not at school, not in my neighbourhood, and not in my house. Especially not in my house.
 
 Mother still doesn’t know I have the photograph I found. I’ve never told her, and I don’t plan to. She acts like the past doesn’t matter like we’re supposed to move on and forget whatever came before him—her boyfriend. He’s all she cares about now. And maybe that’s why I keep the photograph hidden, tucked in my pocket like a secret only I’m allowed to carry.
@@ -801,8 +802,8 @@ I don’t know where I’m headed, and most days, I don’t even want to think a
         // Function to gradually increase the volume after entering the passage
         function gradualVolumeIncrease(audio, targetVolume, duration) {
             let currentVolume = audio.volume;
-            const step = (targetVolume - currentVolume) / (duration / 100); // Calculate volume increment
-            const fadeIn = setInterval(() =&gt; {
+            var step = (targetVolume - currentVolume) / (duration / 100); // Calculate volume increment
+            var fadeIn = setInterval(() =&gt; {
                 currentVolume = Math.min(targetVolume, currentVolume + step);
                 audio.volume = currentVolume;
                 if (currentVolume &gt;= targetVolume) {
